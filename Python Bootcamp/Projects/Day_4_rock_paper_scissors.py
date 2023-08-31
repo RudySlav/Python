@@ -27,26 +27,24 @@ scissors = '''
 ---.__(___)
 '''
 
+game_images = [rock, paper, scissors]
 
-choices = ["rock", "paper", "scissors"]
-art = [rock, paper, scissors]
-
-user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors"))
+user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+print(game_images[user_choice])
 
 computer_choice = random.randint(0, 2)
+print("Computer chose:")
+print(game_images[computer_choice])
 
-if user_choice == computer_choice:
-    print("Its a draw!")
-    print(f"Bot you and the computer picked {choices[user_choice]}")
-    print(art[user_choice])
-
-if user_choice == 0 and computer_choice == 2:
-    print("You Win!")
-    print(choices[user_choice])
-    print(art[user_choice])
-    print("Computer Chose:")
-    print(choices[computer_choice])
-    print(art[computer_choice])
+if user_choice >= 3 or user_choice < 0: 
+  print("You typed an invalid number, you lose!") 
+elif user_choice == 0 and computer_choice == 2:
+  print("You win!")
+elif computer_choice == 0 and user_choice == 2:
+  print("You lose")
 elif computer_choice > user_choice:
-    print("You lose")
-
+  print("You lose")
+elif user_choice > computer_choice:
+  print("You win!")
+elif computer_choice == user_choice:
+  print("It's a draw")
